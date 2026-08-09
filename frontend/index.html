@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atlas AI | Enterprise Financial Workspace</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js for Stock & Portfolio Charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- App Styling -->
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-icon">
+                    <i data-lucide="trending-up"></i>
+                </div>
+                <div class="brand-text">
+                    <h2>ATLAS AI</h2>
+                    <span>FINANCIAL ASSISTANT</span>
+                </div>
+            </div>
+
+            <nav class="nav-menu">
+                <button class="nav-item active" data-tab="overview">
+                    <i data-lucide="layout-dashboard"></i>
+                    <span>Market Overview</span>
+                </button>
+                <button class="nav-item" data-tab="chat">
+                    <i data-lucide="bot"></i>
+                    <span>AI Workspace Chat</span>
+                </button>
+                <button class="nav-item" data-tab="watchlist">
+                    <i data-lucide="line-chart"></i>
+                    <span>Watchlist & Research</span>
+                </button>
+                <button class="nav-item" data-tab="documents">
+                    <i data-lucide="file-text"></i>
+                    <span>Document Intelligence</span>
+                </button>
+                <button class="nav-item" data-tab="integrations">
+                    <i data-lucide="grid"></i>
+                    <span>Integrations Hub</span>
+                </button>
+                <button class="nav-item" data-tab="settings">
+                    <i data-lucide="sliders"></i>
+                    <span>Preferences & Alerts</span>
+                </button>
+                <button class="nav-item" data-tab="logs">
+                    <i data-lucide="terminal"></i>
+                    <span>System Monitor</span>
+                </button>
+            </nav>
+
+            <div class="user-profile-badge">
+                <div class="avatar">AP</div>
+                <div class="user-info">
+                    <span class="user-name" id="badge-user-name">Alex Pro</span>
+                    <span class="user-role" id="badge-user-role">Senior Analyst</span>
+                </div>
+                <span class="status-indicator"></span>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Header Bar -->
+            <header class="top-header">
+                <div class="header-title">
+                    <h1 id="page-title">Market Intelligence & Briefings</h1>
+                    <p id="page-subtitle">Real-time financial synthesis, portfolio analytics, and automated briefings.</p>
+                </div>
+                <div class="header-actions">
+                    <div class="search-bar">
+                        <i data-lucide="search"></i>
+                        <input type="text" id="global-search" placeholder="Search ticker, company news, emails, or models...">
+                    </div>
+                    <button class="btn btn-primary" id="btn-quick-briefing">
+                        <i data-lucide="sparkles"></i>
+                        <span>Generate Instant Briefing</span>
+                    </button>
+                </div>
+            </header>
+
+            <!-- TAB 1: OVERVIEW -->
+            <section class="tab-content active" id="tab-overview">
+                <!-- Market Cards Grid -->
+                <div class="market-cards-grid">
+                    <div class="market-card">
+                        <div class="card-header">
+                            <span>S&P 500</span>
+                            <span class="badge badge-success" id="sp500-change">+1.25%</span>
+                        </div>
+                        <div class="card-value" id="sp500-price">5,340.20</div>
+                        <div class="card-footer">Day Range: 5,310 - 5,352</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="card-header">
+                            <span>NASDAQ 100</span>
+                            <span class="badge badge-success" id="nasdaq-change">+1.40%</span>
+                        </div>
+                        <div class="card-value" id="nasdaq-price">16,780.50</div>
+                        <div class="card-footer">Day Range: 16,620 - 16,810</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="card-header">
+                            <span>DOW JONES</span>
+                            <span class="badge badge-neutral" id="dow-change">+0.45%</span>
+                        </div>
+                        <div class="card-value" id="dow-price">39,120.10</div>
+                        <div class="card-footer">Day Range: 39,010 - 39,180</div>
+                    </div>
+                    <div class="market-card">
+                        <div class="card-header">
+                            <span>ACTIVE WATCHLIST</span>
+                            <span class="badge badge-purple" id="watchlist-count-badge">3 Tickers</span>
+                        </div>
+                        <div class="card-value" id="watchlist-tickers-preview">AAPL, NVDA, TSLA</div>
+                        <div class="card-footer">Scheduled Briefing: 09:00 UTC</div>
+                    </div>
+                </div>
+
+                <!-- Briefing & Portfolio Row -->
+                <div class="overview-grid">
+                    <div class="glass-panel briefing-panel">
+                        <div class="panel-header">
+                            <div class="title-wrap">
+                                <i data-lucide="sun"></i>
+                                <h3>Personalized Morning Intelligence Briefing</h3>
+                            </div>
+                            <span class="time-stamp" id="briefing-time-tag">Updated Just Now</span>
+                        </div>
+                        <div class="briefing-body markdown-body" id="briefing-content">
+                            <p>Loading market intelligence summary...</p>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel chart-panel">
+                        <div class="panel-header">
+                            <h3>Market Sentiment & Volume Distribution</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="overviewMarketChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: AI WORKSPACE CHAT -->
+            <section class="tab-content" id="tab-chat">
+                <div class="chat-layout glass-panel">
+                    <div class="chat-header">
+                        <div class="bot-info">
+                            <div class="bot-avatar">
+                                <i data-lucide="bot"></i>
+                            </div>
+                            <div>
+                                <h3>Atlas Conversational Assistant</h3>
+                                <span class="subtext">Natural language financial analyst • Context Aware • Gemini 2.5 Engine</span>
+                            </div>
+                        </div>
+                        <div class="quick-prompts">
+                            <button class="chip-btn" data-query="Compare Microsoft and Google from an investment perspective">Compare MSFT & GOOGL</button>
+                            <button class="chip-btn" data-query="Search my emails for Nvidia earnings mentions">Search Gmail for NVDA</button>
+                            <button class="chip-btn" data-query="Schedule a team meeting tomorrow at 2 PM to review quarterly KPIs">Schedule Meeting</button>
+                        </div>
+                    </div>
+
+                    <div class="chat-messages" id="chat-messages-container">
+                        <!-- Messages dynamically rendered -->
+                    </div>
+
+                    <div class="chat-input-bar">
+                        <input type="text" id="chat-input" placeholder="Ask Atlas anything (e.g. 'Analyze Apple's P/E ratio', 'Summarize latest news')...">
+                        <button class="btn btn-primary" id="btn-send-message">
+                            <i data-lucide="send"></i>
+                            <span>Send</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: WATCHLIST & RESEARCH -->
+            <section class="tab-content" id="tab-watchlist">
+                <div class="watchlist-controls">
+                    <div class="add-ticker-box">
+                        <input type="text" id="input-new-ticker" placeholder="Enter stock symbol (e.g. AMZN, META, AMD)...">
+                        <button class="btn btn-secondary" id="btn-add-ticker">
+                            <i data-lucide="plus"></i>
+                            <span>Add Ticker</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="watchlist-grid" id="watchlist-cards-container">
+                    <!-- Watchlist company cards inserted dynamically -->
+                </div>
+            </section>
+
+            <!-- TAB 4: DOCUMENT INTELLIGENCE -->
+            <section class="tab-content" id="tab-documents">
+                <div class="document-workspace-grid">
+                    <div class="glass-panel upload-zone-panel">
+                        <h3>Upload Financial Reports or Spreadsheets</h3>
+                        <p class="subtext">Supports PDF Annual Reports, 10-K filings, CSV models, and Excel spreadsheets.</p>
+                        
+                        <div class="drop-zone" id="drop-zone">
+                            <i data-lucide="upload-cloud"></i>
+                            <p>Drag & Drop your document here, or <span>Browse Files</span></p>
+                            <input type="file" id="file-input" accept=".pdf,.csv,.xls,.xlsx" hidden>
+                        </div>
+
+                        <div class="query-prompt-box">
+                            <label for="doc-custom-query">Custom Analysis Query (Optional):</label>
+                            <input type="text" id="doc-custom-query" placeholder="e.g. Highlight revenue growth, net profit margins, and key risk factors...">
+                            <button class="btn btn-primary" id="btn-analyze-doc">
+                                <i data-lucide="sparkles"></i>
+                                <span>Analyze Document with AI</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel doc-result-panel">
+                        <h3>AI Executive Summary & Extracted Insights</h3>
+                        <div class="doc-result-content markdown-body" id="doc-summary-output">
+                            <p class="placeholder-text">Upload a document on the left to see instant financial summaries, anomaly detection, and KPI extractions.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 5: INTEGRATIONS HUB -->
+            <section class="tab-content" id="tab-integrations">
+                <div class="integrations-grid">
+                    <!-- Gmail Card -->
+                    <div class="glass-panel integration-card">
+                        <div class="integration-header">
+                            <i data-lucide="mail" class="icon-gmail"></i>
+                            <div>
+                                <h3>Gmail Workspace Integration</h3>
+                                <span class="status-connected">● Active & Connected</span>
+                            </div>
+                        </div>
+                        <p>Search inbox conversations, extract company mentions, and stay informed on incoming investor letters.</p>
+                        <div class="integration-action">
+                            <input type="text" id="gmail-search-query" placeholder="Search emails (e.g. Tesla, Nvidia)...">
+                            <button class="btn btn-sm" id="btn-search-gmail">Search Gmail</button>
+                        </div>
+                        <div class="integration-results" id="gmail-results"></div>
+                    </div>
+
+                    <!-- Calendar Card -->
+                    <div class="glass-panel integration-card">
+                        <div class="integration-header">
+                            <i data-lucide="calendar" class="icon-calendar"></i>
+                            <div>
+                                <h3>Google Calendar Sync</h3>
+                                <span class="status-connected">● Active & Connected</span>
+                            </div>
+                        </div>
+                        <p>Schedule earnings call prep meetings, set team syncs, and automate calendar reminders.</p>
+                        <div class="integration-action">
+                            <input type="text" id="calendar-meeting-title" placeholder="Meeting Title (e.g. Q3 Review)...">
+                            <button class="btn btn-sm" id="btn-schedule-calendar">Schedule Event</button>
+                        </div>
+                        <div class="integration-results" id="calendar-results"></div>
+                    </div>
+
+                    <!-- Sheets Card -->
+                    <div class="glass-panel integration-card">
+                        <div class="integration-header">
+                            <i data-lucide="table" class="icon-sheets"></i>
+                            <div>
+                                <h3>Google Sheets Financial Models</h3>
+                                <span class="status-connected">● Active & Connected</span>
+                            </div>
+                        </div>
+                        <p>Read spreadsheet rows, inspect financial models, and detect budget anomalies automatically.</p>
+                        <div class="integration-action">
+                            <button class="btn btn-sm" id="btn-read-sheet">Inspect Active KPI Model Sheet</button>
+                        </div>
+                        <div class="integration-results" id="sheet-results"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 6: PREFERENCES & ALERTS -->
+            <section class="tab-content" id="tab-settings">
+                <div class="glass-panel settings-form">
+                    <h3>User Profile & Assistant Preferences</h3>
+                    
+                    <div class="form-group">
+                        <label for="setting-role">Professional Role:</label>
+                        <input type="text" id="setting-role" value="Senior Financial Analyst">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="setting-briefing-time">Scheduled Daily Briefing Time (UTC):</label>
+                        <input type="time" id="setting-briefing-time" value="09:00">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="setting-timezone">Primary Timezone:</label>
+                        <select id="setting-timezone">
+                            <option value="UTC" selected>UTC (Coordinated Universal Time)</option>
+                            <option value="EST">EST (Eastern Standard Time)</option>
+                            <option value="PST">PST (Pacific Standard Time)</option>
+                            <option value="IST">IST (Indian Standard Time)</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary" id="btn-save-settings">
+                        <i data-lucide="check"></i>
+                        <span>Save Preferences</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- TAB 7: SYSTEM MONITOR & LOGS -->
+            <section class="tab-content" id="tab-logs">
+                <div class="glass-panel terminal-panel">
+                    <div class="terminal-header">
+                        <i data-lucide="terminal"></i>
+                        <span>Spring Boot & Telegram Service Runtime Logs</span>
+                        <button class="btn-icon" id="btn-refresh-logs"><i data-lucide="refresh-cw"></i></button>
+                    </div>
+                    <pre class="terminal-body" id="logs-container">Loading server log stream...</pre>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Target build directory
+backend/target/
+target/
+
+# Environment and Secrets
+.env
+*.env
+
+# IDE files
+.idea/
+*.iml
+.DS_Store
+
+# Virtual Environment & Temp Media
+scratch/venv/
+.tempmediaStorage/
+*.log
