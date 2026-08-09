@@ -1,12 +1,12 @@
 # 🚀 Atlas AI Financial Assistant
 
+[![Live Web Dashboard](https://img.shields.io/badge/Live_Web_App-Render_Cloud-purple?style=for-the-badge&logo=render)](https://atlas-financial-assistant-p0ot.onrender.com)
 [![Telegram Bot](https://img.shields.io/badge/Telegram_Bot-@AtlasFinancial__123__bot-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/AtlasFinancial_123_bot)
-[![Live Telegram Bot](https://img.shields.io/badge/Live_Bot_Link-https://t.me/AtlasFinancial__123__bot-brightgreen?style=for-the-badge&logo=telegram)](https://t.me/AtlasFinancial_123_bot)
 
 > **Enterprise-Grade Wall Street Financial Intelligence Platform & Grounded Telegram Assistant**
 > 
-> 🤖 **Official Live Telegram Bot:** [@AtlasFinancial_123_bot](https://t.me/AtlasFinancial_123_bot)  
-> 🔗 **Direct Bot Access:** [https://t.me/AtlasFinancial_123_bot](https://t.me/AtlasFinancial_123_bot)
+> 🌐 **Live Web Application URL:** [https://atlas-financial-assistant-p0ot.onrender.com](https://atlas-financial-assistant-p0ot.onrender.com)  
+> 🤖 **Official Live Telegram Bot:** [@AtlasFinancial_123_bot](https://t.me/AtlasFinancial_123_bot) (`https://t.me/AtlasFinancial_123_bot`)
 
 ---
 
@@ -18,6 +18,7 @@ Finance professionals and retail investors spend an enormous amount of time swit
 
 ## 🎯 Key Hackathon Highlights & Architecture
 
+- **🌐 Live Cloud Web Dashboard**: Access the single-page Glassmorphic financial workspace live at [https://atlas-financial-assistant-p0ot.onrender.com](https://atlas-financial-assistant-p0ot.onrender.com).
 - **🤖 Primary Telegram Interface**: Direct 24/7 conversational workflow via Telegram Bot `https://t.me/AtlasFinancial_123_bot` supporting Text, Voice Notes, and Multimodal Vision Chart analysis.
 - **🏦 SEC EDGAR Tier-1 Regulatory Grounding**: Primary regulatory source for 10-K material change comparison (FY24 vs FY25) & SEC Form 4 insider transaction intelligence (Jensen Huang 90-day selling patterns).
 - **🧮 Deterministic Financial Calculation Engine**: Zero LLM math hallucinations for YoY growth rates, gross margins, and 2D DCF sensitivity matrices.
@@ -41,7 +42,8 @@ Finance professionals and retail investors spend an enormous amount of time swit
 
 ## 💻 Tech Stack & Frameworks
 
-- **Backend**: Java 21+, Spring Boot 3.3.2, Spring Data JPA, PostgreSQL Vector DB / Hibernate.
+- **Cloud Deployment**: Render.com Docker Web Service (`https://atlas-financial-assistant-p0ot.onrender.com`).
+- **Backend**: Java 21+, Spring Boot 3.3.2, Spring Data JPA, PostgreSQL / Embedded H2 DB.
 - **AI & Reasoning**: Google GenAI Java SDK (Gemini 2.5), Custom Deterministic Math Engine, Fact Classification Engine.
 - **Bot Engine**: Telegram Long Polling Bot API (`@AtlasFinancial_123_bot`).
 - **Frontend**: Glassmorphic HTML5 / CSS3 / ES6 Single Page App.
@@ -62,4 +64,4 @@ cd ATLAS-FINANCIAL-ASSISTANT/backend
 java -jar target/financial-1.0.0.jar
 ```
 
-Access Telegram Bot at [@AtlasFinancial_123_bot](https://t.me/AtlasFinancial_123_bot) or local Web Dashboard at `http://localhost:8080`.
+Access Telegram Bot at [@AtlasFinancial_123_bot](https://t.me/AtlasFinancial_123_bot) or Live Web Dashboard at [https://atlas-financial-assistant-p0ot.onrender.com](https://atlas-financial-assistant-p0ot.onrender.com).
