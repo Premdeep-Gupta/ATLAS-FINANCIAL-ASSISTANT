@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
@@ -14,7 +15,7 @@
 	<artifactId>financial</artifactId>
 	<version>1.0.0</version>
 	<name>atlas-financial-assistant</name>
-	<description>Advanced Enterprise AI Financial Assistant</description>
+	<description>Atlas Financial Assistant - Multi-Provider Grounded Wall Street AI Agent</description>
 
 	<properties>
 		<java.version>21</java.version>
@@ -39,6 +40,20 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
+		</dependency>
+
+		<!-- H2 Database Engine for Instant Cloud Deployment -->
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
+		<!-- JSON Library -->
+		<dependency>
+			<groupId>org.json</groupId>
+			<artifactId>json</artifactId>
+			<version>20240303</version>
 		</dependency>
 
 		<!-- JAXB Binding for Java 9+ compatibility -->
@@ -67,21 +82,21 @@
 			<artifactId>hibernate-community-dialects</artifactId>
 		</dependency>
 
-		<!-- Google GenAI SDK for Gemini -->
-		<dependency>
-			<groupId>com.google.genai</groupId>
-			<artifactId>google-genai</artifactId>
-			<version>${genai.version}</version>
-		</dependency>
-
-		<!-- Telegram Bot Starter -->
+		<!-- Telegram Bots Spring Boot Starter -->
 		<dependency>
 			<groupId>org.telegram</groupId>
 			<artifactId>telegrambots-spring-boot-starter</artifactId>
 			<version>${telegram.version}</version>
 		</dependency>
 
-		<!-- Document Processing (PDF and Excel/CSV) -->
+		<!-- Google GenAI SDK (Gemini 2.5) -->
+		<dependency>
+			<groupId>com.google.genai</groupId>
+			<artifactId>google-genai</artifactId>
+			<version>${genai.version}</version>
+		</dependency>
+
+		<!-- Document Processing (PDFBox & Apache POI) -->
 		<dependency>
 			<groupId>org.apache.pdfbox</groupId>
 			<artifactId>pdfbox</artifactId>
@@ -93,19 +108,14 @@
 			<version>${poi.version}</version>
 		</dependency>
 
-		<!-- Web Scraping & Utilities -->
+		<!-- Lombok -->
 		<dependency>
-			<groupId>org.jsoup</groupId>
-			<artifactId>jsoup</artifactId>
-			<version>1.17.2</version>
-		</dependency>
-		<dependency>
-			<groupId>org.json</groupId>
-			<artifactId>json</artifactId>
-			<version>20240303</version>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
 		</dependency>
 
-		<!-- Testing -->
+		<!-- Test Dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -118,6 +128,14 @@
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
