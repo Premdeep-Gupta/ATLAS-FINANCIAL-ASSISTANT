@@ -1,94 +1,65 @@
-# Atlas AI Financial Assistant 🚀
+# 🚀 Atlas AI Financial Assistant
 
-> **Enterprise-Grade AI Financial Intelligence Platform & Telegram Workspace Assistant**
+[![Telegram Bot](https://img.shields.io/badge/Telegram_Bot-@AtlasFinancial__123__bot-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/AtlasFinancial_123_bot)
+[![Live Telegram Bot](https://img.shields.io/badge/Live_Bot_Link-https://t.me/AtlasFinancial__123__bot-brightgreen?style=for-the-badge&logo=telegram)](https://t.me/AtlasFinancial_123_bot)
 
-Built with **Java 21+**, **Spring Boot 3.3.2**, **Google GenAI Java SDK (Gemini 2.5)**, and a **Glassmorphic Financial Web Dashboard**.
+> **Enterprise-Grade Wall Street Financial Intelligence Platform & Grounded Telegram Assistant**
+> 
+> 🤖 **Official Live Telegram Bot:** [@AtlasFinancial_123_bot](https://t.me/AtlasFinancial_123_bot)  
+> 🔗 **Direct Bot Access:** [https://t.me/AtlasFinancial_123_bot](https://t.me/AtlasFinancial_123_bot)
 
 ---
 
 ## 🌟 Overview
 
-Finance professionals spend an enormous amount of time switching between stock screeners, news sites, SEC filings, email threads, and spreadsheets. **Atlas AI Financial Assistant** synthesizes real-time market data, company fundamentals, document intelligence, and workspace productivity tools into a unified, conversational assistant accessible via **Telegram** and a **Web Workspace Dashboard**.
+Finance professionals and retail investors spend an enormous amount of time switching between stock screeners, news sites, SEC EDGAR filings, email threads, and financial spreadsheets. **Atlas AI Financial Assistant** synthesizes real-time market data, regulatory company filings (10-K & Form 4), document intelligence, and workspace productivity tools into a unified, evidence-grounded conversational assistant accessible via **Telegram** and a **Web Workspace Dashboard**.
 
 ---
 
-## 🎯 Architecture & Design Highlights
+## 🎯 Key Hackathon Highlights & Architecture
 
-- **Spring Boot 3 Backend Platform**: Modular, scalable architecture leveraging Spring Data JPA, SQLite, and Spring Scheduler.
-- **Google GenAI Java SDK (Gemini 2.5)**: Powered by Google's native GenAI Java library for high-speed financial reasoning, multi-turn tool declarations, audio transcriptions, and document context processing.
-- **Telegram Bot Integration**: Conversational onboarding, document Q&A, voice note processing, and natural chat.
-- **Premium Glassmorphic Web Dashboard**: An HTML5 / CSS3 / ES6 JS single-page web app served directly by Spring Boot static resources, featuring dark-mode styling, real-time market indices, interactive Chart.js graphs, an AI chat terminal, document drag-and-drop uploader, and workspace tools.
-- **Zero External Frontend Build Tools Needed**: Runs out-of-the-box with zero Node/npm dependencies.
-
----
-
-## ⚡ Key Features
-
-1. **Natural Conversational Intelligence**: Responds like a senior financial analyst. Clarifies ambiguous queries, highlights margin trends, and delivers concise analyst takeaways.
-2. **Conversational Onboarding**: Gradually learns user role, watchlists, and briefing schedules without cumbersome forms.
-3. **Automated Daily Briefings**: Background cron jobs deliver morning briefings containing broad market indices (S&P 500, Nasdaq, Dow) and watchlist updates.
-4. **Document Intelligence**: Upload 10-Ks, annual reports, PDFs, or CSV/Excel spreadsheets to extract AI executive summaries, risk factors, and financial metrics.
-5. **Workspace Productivity Integrations**: Search Gmail inbox messages, schedule Google Calendar team syncs, and inspect Google Sheets KPI models.
-6. **Market Volatility Price Alerts**: Monitors watchlist stock movements every 5 minutes and triggers notifications when a stock moves > 5%.
+- **🤖 Primary Telegram Interface**: Direct 24/7 conversational workflow via Telegram Bot `https://t.me/AtlasFinancial_123_bot` supporting Text, Voice Notes, and Multimodal Vision Chart analysis.
+- **🏦 SEC EDGAR Tier-1 Regulatory Grounding**: Primary regulatory source for 10-K material change comparison (FY24 vs FY25) & SEC Form 4 insider transaction intelligence (Jensen Huang 90-day selling patterns).
+- **🧮 Deterministic Financial Calculation Engine**: Zero LLM math hallucinations for YoY growth rates, gross margins, and 2D DCF sensitivity matrices.
+- **🧬 Knowledge Event Graph Engine**: Forward impact propagation & reverse graph traversal (e.g. market beneficiaries under GPU supply constraints).
+- **🧠 Adaptive 4-Level Memory System**: Short-term, Episodic, Semantic, and Procedural memory with explainable *"Why remember this?"* governance and privacy controls.
+- **📄 Multi-Format RAG & Document Intelligence**: Async PDF/DOCX/XLSX vector indexing with exact page citations and financial model variance analysis.
+- **🚨 Proactive Relevance Scoring Engine**: Evaluates market news and alerts on $Impact \times Relevance \times Novelty \times Urgency$.
 
 ---
 
-## 💻 Quick Start & Running Instructions
+## ⚡ Core Workflows
 
-### Prerequisites
-- **Java 21+** installed (`java -version`).
-- Telegram Bot Token & Gemini API Key (optional, mock mode supported automatically if keys are absent).
+1. **Intraday Driver Analysis**: Natural language query *"Why is NVIDIA up?"* returns fact-classified market movement drivers.
+2. **SEC Form 4 Insider Intelligence**: Query *"CEO sold shares"* extracts Form 4 transaction disclosures, Rule 10b5-1 plans, and historical selling context.
+3. **SEC 10-K Material Change Analysis**: Query *"What changed in Apple's latest 10-K?"* auto-compares Item 1A Risk Factors and financial statement variances.
+4. **Valuation & DCF Sensitivity**: Query *"Revenue growth 10% lower ho jaye to valuation model?"* computes 2D Sensitivity Matrices across Bear/Base/Bull scenarios.
+5. **Reverse Knowledge Traversal**: Query *"Show me all companies that could benefit if NVIDIA faces supply constraints"* traverses competitive supplier networks (AMD, Broadcom, TSMC).
+6. **Explainable Memory Audit**: Queries *"What do you remember about me?"* and *"Why do you think I'm interested in NVIDIA?"* present explainable memory reasoning.
 
-### Launching the Application
+---
 
-Execute the startup script from the root directory:
+## 💻 Tech Stack & Frameworks
+
+- **Backend**: Java 21+, Spring Boot 3.3.2, Spring Data JPA, PostgreSQL Vector DB / Hibernate.
+- **AI & Reasoning**: Google GenAI Java SDK (Gemini 2.5), Custom Deterministic Math Engine, Fact Classification Engine.
+- **Bot Engine**: Telegram Long Polling Bot API (`@AtlasFinancial_123_bot`).
+- **Frontend**: Glassmorphic HTML5 / CSS3 / ES6 Single Page App.
+
+---
+
+## 🚀 Running Locally
 
 ```bash
-./run.sh
+# 1. Clone repository
+git clone https://github.com/Premdeep-Gupta/ATLAS-FINANCIAL-ASSISTANT.git
+cd ATLAS-FINANCIAL-ASSISTANT/backend
+
+# 2. Package Spring Boot application
+./mvnw clean package -DskipTests
+
+# 3. Launch Application
+java -jar target/financial-1.0.0.jar
 ```
 
-Or manually navigate to the `backend/` directory and execute:
-
-```bash
-cd backend
-./mvnw spring-boot:run
-```
-
-Once running, access the **Web Workspace Dashboard** in your browser at:
-👉 **`http://localhost:8080/`**
-
----
-
-## 🔑 Environment Variables Configuration
-
-Create or edit the `.env` file in the project root:
-
-```env
-# Telegram Bot Configuration
-TELEGRAM_BOT_TOKEN=YOUR_TELEGRAM_BOT_TOKEN
-
-# Google Gemini API Configuration
-GEMINI_API_KEY=YOUR_GEMINI_API_KEY
-```
-
----
-
-## 📁 Repository Structure
-
-```
-atlas-financial-assistant/
-├── backend/
-│   ├── src/main/java/com/atlas/financial/
-│   │   ├── controller/      # DashboardApiController REST endpoints
-│   │   ├── model/           # JPA Entities (User, Watchlist, ConversationHistory)
-│   │   ├── repository/      # Spring Data Repositories
-│   │   ├── service/         # AIService, FinancialService, TelegramBotService, DocumentService
-│   │   └── FinancialApplication.java
-│   ├── src/main/resources/
-│   │   ├── application.properties
-│   │   └── static/          # Web Dashboard UI (index.html, app.css, app.js)
-│   └── pom.xml
-├── run.sh
-├── atlas_financial.db
-└── README.md
-```
+Access Telegram Bot at [@AtlasFinancial_123_bot](https://t.me/AtlasFinancial_123_bot) or local Web Dashboard at `http://localhost:8080`.
